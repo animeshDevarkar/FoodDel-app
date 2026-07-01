@@ -218,7 +218,6 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ---
 
-⭐ If you found this project helpful, please give it a star!
 
 
-Credits - GreatStack
+
