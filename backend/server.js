@@ -1,5 +1,7 @@
 import 'dotenv/config'
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import foodRouter from './routes/foodRoute.js';
@@ -22,8 +24,13 @@ app.use(express.json());
 connectDB();
 
 //api endpoints
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+//api endpoints
 app.use('/api/food', foodRouter);
-app.use('/images',express.static('uploads'))
+app.use('/images', express.static(path.join(__dirname, 'uploads')))
 app.use('/api/user', userRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
